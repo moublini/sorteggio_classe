@@ -6,7 +6,7 @@ interface Classe {
 }
 
 class SorteggioClasse {
-  private _classeScelta: Classe;
+  private _classeScelta!: Classe;
   static classiSalvate: Record<string, Classe> = {
     "3B": {
       numeroStudenti: 26,
@@ -55,7 +55,7 @@ class SorteggioClasse {
     SorteggioClasse.classiSalvate = classiSalvate;
   }
 
-  get classeScelta() {
+  get classeScelta(): Classe {
     return { ...this.classeScelta };
   }
 
@@ -202,3 +202,6 @@ class SorteggioClasse {
       \nEsempio 2: new SorteggioClasse("${classe || '3D'}", 26);\n`.trim());
   }
 }
+
+const classe = new SorteggioClasse("3B");
+classe.sorteggioUniversale(5);
